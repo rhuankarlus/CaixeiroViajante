@@ -1,0 +1,36 @@
+Descrição do problema:
+O problema do Caixeiro Viajante se baseia em grafos. Cada vértice do grafo é uma ilha ou cidade, e cada aresta representa o caminho que leva a ilha ou cidade à outra. Dessa forma o problema propõe que se encontre o menor caminho para se sair de um vértice A e se chegar a um vértice B passando apenas uma vez por cada vértice.
+
+Exemplo:
+Dada a tabela de rotas seguinte onde a primeira coluna representa a cidade de origem e as demais colunas representam com quais cidades esta se liga. (S = liga, N = não liga)
+
+	A	B	C	D
+A 	-	S	N	S
+B 	S	-	S	N
+C 	N	S	-	S
+D	S	N	S	-
+
+Percebemos pela matriz que o caminho mais rápido de B até D seria fazendo a rota B -> A -> D ou a rota B -> C -> D porém estas rotas possuem caminhos idênticos em tamanho. Por causa disso é proposto que além dos caminhos entre cada cidade possamos inserir também a distancia de cada caminho de forma que aqueles que não tiverem ligação simplesmente não tenham distancia. Assim:
+
+		A		B		C		D
+A 		0		100		-		500
+B 		100		0		250		-
+C 		-		250		0		800
+D		500		-		800		0
+
+Agora fica claro que a rota de B até D passando primeiramente por A é a mais viável já que no caminho B -> A -> D percorremos uma distancia de 100 + 500 = 600 e na rota B -> C -> D percorremos uma distancia de 250 + 800 = 1050...
+Agora sim podemos verificar qual é definitivamente a melhor rota entre dois vértices. Precisamos então configurar o problema, e para isso usaremos um arquivo que determinará todas as ligações entre cada vértice de forma que o nosso aplicativo terá acesso a esse arquivo e ele será lido antes de iniciar a evolução genética.
+
+Usaremos um arquivo XML e cada rota será definida dentro de TAGs da seguinte forma.
+
+<rotas>
+	<rota>
+		<origem>nome_da_cidade_de_origem</origem>
+		<destinos>
+			<destino nome="nome_de_uma_cidade_de_destino" distancia="100" />
+			<destino nome="nome_de_outra_cidade_de_destino" distancia="150" />
+		</destinos>
+	</rota>
+</rotas>
+
+Nesse mesmo arquivo também definiremos quantas vezes nossa população deve iterar. Assim temos total controle sobre quantas vezes nossa população crescerá. Outra vantagem é que podemos escrever uma rota de uma cidade à outra apenas uma vez porque as duas já estarão ligadas por aquela distancia em nosso arquivo XML.

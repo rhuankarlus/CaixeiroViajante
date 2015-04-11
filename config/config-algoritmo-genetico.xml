@@ -1,0 +1,55 @@
+<algoritmo-genetico>
+	<config>
+		<individuos>1000</individuos>
+		<iteracoes>500</iteracoes>
+		<tentativas>100</tentativas>
+	</config>
+
+	<rotas>
+		<rota>
+			<origem>A</origem>
+			<destinos>
+				<destino nome="B" distancia="3000"/>
+				<destino nome="C" distancia="100"/>
+				<destino nome="F" distancia="1550"/>
+				<destino nome="G" distancia="780"/>
+			</destinos>
+		</rota>
+		<rota>
+			<origem>B</origem>
+			<destinos>
+				<destino nome="C" distancia="250"/>
+				<destino nome="D" distancia="400"/>
+				<destino nome="E" distancia="2000"/>
+			</destinos>
+		</rota>
+		<rota>
+			<origem>C</origem>
+			<destinos>
+				<destino nome="D" distancia="1500"/>
+				<destino nome="E" distancia="1400"/>
+				<destino nome="F" distancia="10"/>
+				<destino nome="G" distancia="500"/>
+			</destinos>
+		</rota>
+		<rota>
+			<origem>D</origem>
+			<destinos>
+				<destino nome="F" distancia="200"/>
+				<destino nome="G" distancia="700"/>
+			</destinos>
+		</rota>
+		<rota>
+			<origem>E</origem>
+			<destinos>
+				<destino nome="F" distancia="150"/>
+			</destinos>
+		</rota>
+		<rota>
+			<origem>F</origem>
+			<destinos>
+				<destino nome="G" distancia="1350"/>
+			</destinos>
+		</rota>
+	</rotas>
+</algoritmo-genetico>
